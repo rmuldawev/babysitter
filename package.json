@@ -14,6 +14,7 @@
     "react": "18.2.0",
     "react-hook-form": "^7.46.1",
     "react-native": "0.72.4",
+    "react-native-confirmation-code-field": "6",
     "react-native-floating-label-input": "^1.4.2",
     "react-native-mask-input": "^1.2.3",
     "react-native-reanimated": "^3.5.1",

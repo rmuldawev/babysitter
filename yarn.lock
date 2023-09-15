@@ -4511,6 +4511,7 @@ __metadata:
     react: 18.2.0
     react-hook-form: ^7.46.1
     react-native: 0.72.4
+    react-native-confirmation-code-field: 6
     react-native-floating-label-input: ^1.4.2
     react-native-mask-input: ^1.2.3
     react-native-reanimated: ^3.5.1
@@ -9623,6 +9624,16 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
+  languageName: node
+  linkType: hard
+
+"react-native-confirmation-code-field@npm:6":
+  version: 6.7.0
+  resolution: "react-native-confirmation-code-field@npm:6.7.0"
+  peerDependencies:
+    react: ">=16.4.0"
+    react-native: ">=0.59.0"
+  checksum: 3fa685f086ff67d6e400b711bb746d9b1afd963c12cc99d73f02d61da11727fc6a643be101ae77e46eb2654b38f69a8c6a1ede31848ea4ca483f6612c29b5019
   languageName: node
   linkType: hard
 
