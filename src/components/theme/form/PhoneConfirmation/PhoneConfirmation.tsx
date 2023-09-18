@@ -19,6 +19,9 @@ const PhoneConfirmation = () => {
   });
   return (
     <>
+      <Text fontSize={'18px'} color={colors.base.white} pb={'9px'}>
+        Введите код подтверждения:
+      </Text>
       <CodeField
         ref={ref}
         {...props}
@@ -27,19 +30,14 @@ const PhoneConfirmation = () => {
         keyboardType="number-pad"
         textContentType="oneTimeCode"
         defaultValue=""
+        placeholder="0000"
         renderCell={({index, symbol, isFocused}) => (
-          <Box
-            borderRadius={'10px'}
-            borderWidth={1}
-            p={'10px'}
-            bg={colors.base.white}>
-            <Text
-              key={index}
-              style={[styles.cell, isFocused && styles.focusCell]}
-              onLayout={getCellOnLayoutHandler(index)}>
-              {symbol || (isFocused ? <Cursor /> : null)}
-            </Text>
-          </Box>
+          <Text
+            key={index}
+            style={[styles.cell, isFocused && styles.focusCell]}
+            onLayout={getCellOnLayoutHandler(index)}>
+            {symbol || (isFocused ? <Cursor /> : null)}
+          </Text>
         )}
       />
     </>

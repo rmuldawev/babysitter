@@ -2,6 +2,7 @@ import {Radio, Stack} from 'native-base';
 import React, {FC} from 'react';
 import {Controller, useFormContext} from 'react-hook-form';
 import CheckboxIcom from '../../assets/icons/checkboxIcon';
+import {colors} from '../../themes/styleComponents';
 
 type GenterType = {
   name: string;
@@ -28,6 +29,8 @@ const RadioField: FC<GenterType> = ({name}) => {
               }}
               space={'41px'}>
               <Radio
+                _checked={{borderColor: colors.orange}}
+                _pressed={{borderColor: colors.orange}}
                 width={'18px'}
                 height={'18px'}
                 value="female"
@@ -38,6 +41,8 @@ const RadioField: FC<GenterType> = ({name}) => {
                 Женский
               </Radio>
               <Radio
+                _checked={{borderColor: colors.orange}}
+                _pressed={{borderColor: colors.orange}}
                 width={'18px'}
                 height={'18px'}
                 borderRadius={'4px'}

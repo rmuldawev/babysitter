@@ -8,6 +8,7 @@ export const colors = {
   },
   orange: '#FFC996',
   gray: '#949494',
+  darkGray: '#767676',
   red: '#FC3922',
 };
 

@@ -10,6 +10,8 @@ import {
 import Gender from './src/components/theme/form/gender/Gender';
 import CustomButton from './src/components/Button/CustomButton';
 import PhoneConfirmation from './src/components/theme/form/PhoneConfirmation/PhoneConfirmation';
+import AddChildButton from './src/components/AddChildButton/AddChildButton';
+import CommentField from './src/components/CommentField/CommentField';
 
 export interface dataProps {
   gender: string;
@@ -47,6 +49,11 @@ const App = () => {
           <Gender />
           <CustomButton onPress={handleSubmit(onPress)} name="Press" />
           <PhoneConfirmation />
+          <AddChildButton onPress={handleSubmit(onPress)} />
+          <CommentField
+            name="comments"
+            placeholder="В данном поле напишите, что любит ребёнок, его увлечения, режим сна, наличие у ребёнка аллергии и т.д"
+          />
         </Box>
       </FormProvider>
     </NativeBaseProvider>
