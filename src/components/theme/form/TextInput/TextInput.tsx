@@ -89,17 +89,15 @@ const TextInput: FC<TextInputProps> = ({
                   keyboardType={'default'}
                 />
               )}
-
-              {state === true && (
+              {/* {state === true && (
                 <Pressable onPress={() => console.log('clicked')}>
                   <CalendarIcon />
                 </Pressable>
-              )}
+              )} */}
             </HStack>
           </>
         );
       }}
-      defaultValue={''}
       name={name}
     />
   );

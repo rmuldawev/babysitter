@@ -4512,6 +4512,7 @@ __metadata:
     react-hook-form: ^7.46.1
     react-native: 0.72.4
     react-native-confirmation-code-field: 6
+    react-native-date-picker: ^4.3.3
     react-native-floating-label-input: ^1.4.2
     react-native-mask-input: ^1.2.3
     react-native-reanimated: ^3.5.1
@@ -9634,6 +9635,16 @@ __metadata:
     react: ">=16.4.0"
     react-native: ">=0.59.0"
   checksum: 3fa685f086ff67d6e400b711bb746d9b1afd963c12cc99d73f02d61da11727fc6a643be101ae77e46eb2654b38f69a8c6a1ede31848ea4ca483f6612c29b5019
+  languageName: node
+  linkType: hard
+
+"react-native-date-picker@npm:^4.3.3":
+  version: 4.3.3
+  resolution: "react-native-date-picker@npm:4.3.3"
+  peerDependencies:
+    react: ">= 17.0.1"
+    react-native: ">= 0.64.3"
+  checksum: 6e907b48975c934860aed49ba95a5f067752d9a02a4c9dd974c57b062427cec718e1a2fb9ec8466dff4344ec5ce2c6e96eb915cc375d5a062d9df4160873eced
   languageName: node
   linkType: hard
 

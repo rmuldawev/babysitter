@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Box, Button, NativeBaseProvider} from 'native-base';
 import TextInput from './src/components/theme/form/TextInput/TextInput';
 import {
@@ -12,6 +12,10 @@ import CustomButton from './src/components/Button/CustomButton';
 import PhoneConfirmation from './src/components/theme/form/PhoneConfirmation/PhoneConfirmation';
 import AddChildButton from './src/components/AddChildButton/AddChildButton';
 import CommentField from './src/components/CommentField/CommentField';
+import DatePickerModal from './src/components/modals/DatePickerModal/DatePickerModal';
+import DatePicker from 'react-native-date-picker';
+import MaskInput from 'react-native-mask-input';
+import DateFrom from './src/components/DateForm/DateForm';
 
 export interface dataProps {
   gender: string;
@@ -20,11 +24,28 @@ export interface dataProps {
 }
 
 const App = () => {
-  const methods = useForm();
+  const methods = useForm({
+    defaultValues: {
+      phoneNumber: '',
+      address: '',
+      comments: '',
+      date: new Date(),
+    },
+  });
   const onPress: SubmitHandler<FieldValues> = e => {
     console.log('form', e);
   };
-  const {handleSubmit} = methods;
+  const {
+    handleSubmit,
+    formState: {errors},
+    getValues,
+  } = methods;
+
+  const date = getValues('date');
+  const [open, setOpen] = useState(false);
+
+  const [selectedDate, setSelectedDate] = useState('');
+
   return (
     <NativeBaseProvider>
       <FormProvider {...methods}>
@@ -46,6 +67,7 @@ const App = () => {
             placeholder="Адрес:"
             state={true}
           />
+
           <Gender />
           <CustomButton onPress={handleSubmit(onPress)} name="Press" />
           <PhoneConfirmation />
@@ -54,7 +76,19 @@ const App = () => {
             name="comments"
             placeholder="В данном поле напишите, что любит ребёнок, его увлечения, режим сна, наличие у ребёнка аллергии и т.д"
           />
+          <DateFrom
+            value={selectedDate.toString()}
+            onPress={() => [setOpen(true), console.log('opened')]}
+          />
         </Box>
+        <DatePickerModal
+          isVisible={open}
+          setIsVisible={setOpen}
+          name="date"
+          onDateSelected={(data: Date) => {
+            setSelectedDate(data.toLocaleDateString()), setOpen(false);
+          }}
+        />
       </FormProvider>
     </NativeBaseProvider>
   );
