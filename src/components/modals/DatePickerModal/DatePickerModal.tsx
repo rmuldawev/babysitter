@@ -1,7 +1,6 @@
 import React, {FC, useState} from 'react';
 import {Controller, useFormContext} from 'react-hook-form';
 import DatePicker from 'react-native-date-picker';
-// import {Button} from 'react-native';
 
 interface DatePickerModalProps {
   isVisible: boolean;
@@ -25,6 +24,7 @@ const DatePickerModal: FC<DatePickerModalProps> = ({
       render={({field: {onChange, value}}) => {
         return (
           <DatePicker
+            title="Выберите дату"
             locale="ru"
             confirmText="Выбрать"
             cancelText="Отменить"

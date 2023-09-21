@@ -9,12 +9,11 @@ const styles = StyleSheet.create({
     lineHeight: 45,
     fontSize: 20,
     borderWidth: 1,
-    borderColor: colors.gray,
+    // borderColor: colors.gray,
     textAlign: 'center',
     borderRadius:10,
     backgroundColor:colors.base.white,
     overflow:'hidden',
-    fontFamily: 'Lato'
   },
   focusCell: {
     borderColor: colors.darkGray,

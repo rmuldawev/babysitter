@@ -1,44 +1,45 @@
-import React, {FC, useState} from 'react';
-import {Box, HStack, Input, Pressable, Text} from 'native-base';
+import React, {FC} from 'react';
+import {Box, HStack, Text} from 'native-base';
 import MaskInput from 'react-native-mask-input';
 import {colors} from '../../../../themes/styleComponents';
-import {Controller, useFormContext} from 'react-hook-form';
-import CalendarIcon from '../../../../assets/icons/calendarIcon';
+import {Controller, FieldError, useFormContext} from 'react-hook-form';
 
 interface TextInputProps {
   name: string;
   type: string;
   placeholder?: string;
-  state: boolean;
   nameInput: string;
+  error?: FieldError | undefined;
+  defaultValue?: string;
 }
 
 const TextInput: FC<TextInputProps> = ({
   name,
   type,
   placeholder,
-  state,
   nameInput,
+  error,
+  defaultValue,
 }) => {
   const {control} = useFormContext();
 
   return (
     <Controller
+      defaultValue={defaultValue}
       control={control}
       render={({field: {onChange, value}}) => {
         return (
-          <>
+          <Box>
             <Text
               color={'#ffffff'}
               marginBottom={'6px'}
               fontSize={18}
-              fontFamily={'Lato'}
               fontWeight={'500'}>
               {nameInput}
             </Text>
             <HStack
               justifyContent={'space-between'}
-              borderColor={colors.gray}
+              borderColor={error ? colors.red : colors.gray}
               borderWidth={1}
               width={'100%'}
               padding={4}
@@ -48,7 +49,6 @@ const TextInput: FC<TextInputProps> = ({
                 <MaskInput
                   value={value}
                   style={{
-                    fontFamily: 'Lato',
                     fontSize: 16,
                     fontWeight: '400',
                   }}
@@ -79,7 +79,6 @@ const TextInput: FC<TextInputProps> = ({
                 <MaskInput
                   value={value}
                   style={{
-                    fontFamily: 'Lato',
                     fontSize: 16,
                     fontWeight: '400',
                     width: 290,
@@ -89,13 +88,13 @@ const TextInput: FC<TextInputProps> = ({
                   keyboardType={'default'}
                 />
               )}
-              {/* {state === true && (
-                <Pressable onPress={() => console.log('clicked')}>
-                  <CalendarIcon />
-                </Pressable>
-              )} */}
             </HStack>
-          </>
+            {error && (
+              <Text fontSize={11} color={colors.red}>
+                {error.message}
+              </Text>
+            )}
+          </Box>
         );
       }}
       name={name}
